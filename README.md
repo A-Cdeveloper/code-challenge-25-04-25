@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Webshop Application
+
+## Description
+
+This is a simple **Webshop** web application built with **Next.js**. The application allows users to browse products by category, add items to a cart, and view the cart contents. The app fetches product data from the **Fake Store API** and persists cart state across page reloads.
+
+## Technical Requirements
+
+- The application is built using **Next.js** (latest version).
+- It consumes the **Fake Store API** to fetch categories and product data.
+- The application runs locally and can be started using the provided commands.
+- The app is **responsive** and works seamlessly on mobile, tablet, and desktop layouts.
+- Cart state is **persistent** after a page reload using local storage or state management.
+- The project uses **plain CSS** and **CSS modules** for styling.
+
+## Functional Requirements
+
+### Main Page
+
+- Displays a list of all product categories.
+- Each category is clickable and leads to the respective **Category Page**.
+- The user can navigate to the **Cart Page** by clicking a basket icon at the top-right corner.
+
+### Category Page
+
+- Displays the category name and the total product count for the selected category.
+- Lists products specific to the selected category, showing:
+  - Product title
+  - Price
+  - Product image (if available)
+- Allows users to add products to the cart.
+- Includes a basket icon at the top-right corner for easy navigation to the **Cart Page**.
+
+### Cart Page
+
+- Displays all products added to the cart.
+- Shows total price of the products added to the cart.
+- Users can remove products from the cart.
+- Users can change the quantity of products in the cart.
+
+## Quality Requirements
+
+- **Maintainability**: The code is organized and easy to modify in the future.
+- **Extendibility**: The app structure allows for easy additions and feature updates.
+- **Readability**: The code is clean, with clear variable names and logical structure.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
+- Node.js (latest LTS version)
+- npm or yarn
+
+### Installation
+
+Clone the repository:
+
+Install dependencies:
+
+### Running the Application Locally
+
+To run the application locally in development mode, use the following command:
+
+```
 npm run dev
-# or
+# or with yarn
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+```
+npm install
+# or if you use yarn
+yarn install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+git clone https://github.com/your-username/webshop-app.git
+cd webshop-app
+```
