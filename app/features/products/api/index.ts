@@ -29,7 +29,7 @@ export const getCategoryProducts = async (
     console.error(error);
     return {
       data: null,
-      error: "Failed to fetch products ⚠" || (error as Error).message,
+      error: "Failed to fetch products ⚠",
     };
   }
 };

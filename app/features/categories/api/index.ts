@@ -23,7 +23,7 @@ export const getAllCategories = async (): Promise<ResponseType> => {
     console.error(error);
     return {
       data: null,
-      error: "Failed to fetch categories ⚠" || (error as Error).message,
+      error: "Failed to fetch categories ⚠",
     };
   }
 };
