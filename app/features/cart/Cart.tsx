@@ -1,23 +1,29 @@
-// import NoResourcesFound from "@/app/components/ui/NoResourcesFound";
+"use client";
+import { useCart } from "@/app/context/CartContext";
 import styles from "./Cart.module.css";
 import CartItem from "./CartItem";
 import { formatPrice } from "@/app/lib/utils";
-
-{
-  /* <NoResourcesFound>
-Cart is empty. Please add items to your cart.
-</NoResourcesFound> */
-}
+import NoResourcesFound from "@/app/components/ui/NoResourcesFound";
 
 const Cart = () => {
+  const { cart, totalPrice, hydrated } = useCart();
+
+  if (hydrated && cart.length === 0) {
+    return (
+      <NoResourcesFound>
+        Cart is empty. Please add items to your cart.
+      </NoResourcesFound>
+    );
+  }
+
   return (
     <div className={styles[`cart-container`]}>
-      <CartItem />
-      <CartItem />
-      <CartItem />
-      <CartItem />
-      <CartItem />
-      <div className={styles[`total`]}>Total: {formatPrice(89.97)}</div>
+      {cart.map((item) => (
+        <CartItem key={item.id} item={item} />
+      ))}
+      {hydrated && (
+        <div className={styles[`total`]}>Total: {formatPrice(totalPrice)}</div>
+      )}
     </div>
   );
 };
