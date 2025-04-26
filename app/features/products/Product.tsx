@@ -1,11 +1,18 @@
+"use client";
 import Button from "@/app/components/ui/Button";
-import styles from "./Product.module.css";
-import Image from "next/image";
+import { useCart } from "@/app/context/CartContext";
 import { formatPrice } from "@/app/lib/utils";
+import Image from "next/image";
+import styles from "./Product.module.css";
 import { ProductType } from "./types/products";
 
 const Product = ({ product }: { product: ProductType }) => {
-  const { title, price, image } = product;
+  const { addToCart, existInCart, removeFromCart, hydrated } = useCart();
+  const { id, title, price, image } = product;
+
+  /*skip checking cart data during server-side rendering and only do it after hydration. */
+  const isProductInCart = hydrated ? existInCart(id) : false;
+
   return (
     <div className={styles[`product-card`]}>
       <Image
@@ -16,12 +23,38 @@ const Product = ({ product }: { product: ProductType }) => {
       />
       <h3>{title}</h3>
       <p>{formatPrice(price)}</p>
-      <Button variant="add" size="small">
-        Add to Cart
-      </Button>
-      {/* <Button variant="disable" size="small">
-        In Cart ✔
-      </Button> */}
+      <div className={styles[`actions`]}>
+        {hydrated &&
+          (isProductInCart ? (
+            <>
+              <Button variant="disable" size="small">
+                In Cart ✔
+              </Button>
+              <Button
+                size="small"
+                onClick={() => removeFromCart(id)}
+                style={{ backgroundColor: "var(--accent-color)" }}
+              >
+                &times;
+              </Button>
+            </>
+          ) : (
+            <Button
+              variant="add"
+              size="small"
+              onClick={() =>
+                addToCart({
+                  id,
+                  title,
+                  price,
+                  quantity: 1,
+                })
+              }
+            >
+              Add to Cart
+            </Button>
+          ))}
+      </div>
     </div>
   );
 };

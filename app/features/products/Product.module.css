@@ -29,6 +29,13 @@
   margin: 10px 0;
 }
 
+.product-card .actions {
+  display: flex;
+  justify-content: center;
+
+  gap: 10px;
+}
+
 .product-card button {
   align-self: center;
 }
