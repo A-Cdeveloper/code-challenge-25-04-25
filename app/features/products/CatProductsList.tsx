@@ -1,28 +1,30 @@
-// import NoResourcesFound from "@/app/components/ui/NoResourcesFound";
+import NoResourcesFound from "@/app/components/ui/NoResourcesFound";
 import styles from "./CatProductsList.module.css";
-import CatProduct from "./CatProduct";
+import Product from "./Product";
+import { getCategoryProducts } from "./api";
 
-{
-  /* <NoResourcesFound>
-No products found in this category.
-</NoResourcesFound> */
-}
+const CatProductsList = async ({ category }: { category: string }) => {
+  const { data: products, error } = await getCategoryProducts(category);
 
-const CatProductsList = () => {
+  if (error) {
+    return <p>{error}</p>;
+  }
+
+  if (!products || products.length === 0) {
+    return (
+      <NoResourcesFound>No products found in this category.</NoResourcesFound>
+    );
+  }
+
   return (
     <>
-      <p className={styles[`products-count`]}>Number of products: 12</p>
+      <p className={styles[`products-count`]}>
+        Number of products: {products?.length}
+      </p>
       <section className={styles[`product-grid`]}>
-        <CatProduct />
-        <CatProduct />
-        <CatProduct />
-        <CatProduct />
-        <CatProduct />
-        <CatProduct />
-        <CatProduct />
-        <CatProduct />
-
-        <CatProduct />
+        {products?.map((product) => (
+          <Product key={product.id} product={product} />
+        ))}
       </section>
     </>
   );
