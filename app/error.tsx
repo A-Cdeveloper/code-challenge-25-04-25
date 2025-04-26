@@ -20,6 +20,7 @@ export default function Error({
   return (
     <div style={{ textAlign: "center" }}>
       <h2>Something went wrong!</h2>
+      <p>{error.message}</p>
 
       <div style={{ marginTop: "2rem" }}>
         <Image src="/error.svg" alt="404" width={100} height={100} />
