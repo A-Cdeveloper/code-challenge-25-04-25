@@ -2,20 +2,24 @@
 
 import CategoryListItem from "./CategoryListItem";
 import styles from "./CategoryList.module.css";
-{
-  /* <NoResourcesFound>
-No categories.
-</NoResourcesFound> */
-}
+import { getAllCategories } from "./api";
+import NoResourcesFound from "@/app/components/ui/NoResourcesFound";
 
-const CategoryList = () => {
+const CategoryList = async () => {
+  const { data: categories, error } = await getAllCategories();
+
+  if (error) {
+    return <p>{error}</p>;
+  }
+
+  if (!categories || categories.length === 0) {
+    return <NoResourcesFound>No categories found.</NoResourcesFound>;
+  }
   return (
     <div className={styles.categoryList}>
-      <CategoryListItem>Category 1</CategoryListItem>
-      <CategoryListItem>Category 2</CategoryListItem>
-      <CategoryListItem>Category 3</CategoryListItem>
-      <CategoryListItem>Category 4</CategoryListItem>
-      <CategoryListItem>Category 5</CategoryListItem>
+      {categories?.map((category) => (
+        <CategoryListItem key={category}>{category}</CategoryListItem>
+      ))}
     </div>
   );
 };
