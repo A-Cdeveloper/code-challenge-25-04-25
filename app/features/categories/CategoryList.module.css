@@ -1,0 +1,6 @@
+.categoryList {
+  display: flex;
+  flex-direction: column;
+
+  max-width: var(--breakpoint-sm);
+}

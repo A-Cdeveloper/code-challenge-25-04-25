@@ -1,0 +1,10 @@
+/* Main Section */
+.main {
+  padding: 30px;
+  flex: 1;
+  background-color: white;
+
+  h2 {
+    margin-bottom: 1rem;
+  }
+}

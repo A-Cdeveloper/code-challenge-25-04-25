@@ -1,42 +1,64 @@
+/* Import Roboto Font */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+/* Color Variables */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary-color: #2b2d42; /* Dark Blue */
+  --secondary-color: #8d99ae; /* Light Gray */
+  --accent-color: #ef233c; /* Red */
+  --background-color: #edf2f4; /* Light Background */
+  --highlight-color: #e8bd00; /* Yellow */
+  --green-color: #12a336ff; /* Green */
+  --text-color: #333333; /* Dark Text */
+  --button-color: #398289; /* Blue Button */
+  --border-color: #cbd2df;
+
+  --font-family: "Roboto", sans-serif; /* Font Family */
+  --font-size: 1.6rem; /* Base Font Size */
+
+  /* Breakpoints */
+  --breakpoint-sm: 480px; /* Small Devices */
+  --breakpoint-md: 768px; /* Medium Devices */
+  --breakpoint-lg: 1024px; /* Large Devices */
+
+  /* Other Variables */
+  --max-width: var(--breakpoint-lg);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
+/* Global Styles */
 * {
-  box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-size: var(--font-size);
+}
+
+h1,
+h2,
+h3 {
+  color: var(--primary-color);
 }
 
 a {
-  color: inherit;
   text-decoration: none;
+  color: var(--primary-color);
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
 }

@@ -1,0 +1,29 @@
+.categoryListItem {
+  position: relative;
+  overflow: hidden;
+
+  h3 {
+    a {
+      display: block;
+      border-bottom: 1px solid var(--border-color);
+      padding: 8px 15px;
+      font-weight: 500;
+
+      &:hover {
+        background: var(--border-color);
+      }
+    }
+  }
+
+  &::before {
+    content: "";
+    margin-right: 5px;
+    background: var(--secondary-color);
+    height: 100%;
+    width: 5px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+}

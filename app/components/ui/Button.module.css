@@ -1,0 +1,44 @@
+.btn {
+  background-color: var(--button-color);
+
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+.btn.add {
+  background-color: var(--green-color);
+}
+
+.btn.submit {
+  background-color: var(--button-color);
+}
+
+.btn.reset {
+  background-color: var(--secondary-color);
+}
+
+.btn.disable {
+  background-color: #ccc;
+  cursor: not-allowed;
+  color: var(--primary-color);
+}
+
+.btn.small {
+  padding: 5px 10px;
+}
+
+.btn.medium {
+  padding: 10px 20px;
+}
+
+.btn.large {
+  padding: 15px 30px;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
