@@ -2,6 +2,7 @@ import Button from "@/app/components/ui/Button";
 import styles from "./Cart.module.css";
 import CartItem from "./CartItem";
 import Link from "next/link";
+import { formatPrice } from "@/app/lib/utils";
 
 const Cart = () => {
   return (
@@ -18,7 +19,7 @@ const Cart = () => {
       <CartItem />
       <CartItem />
 
-      <div className={styles[`total`]}>Total: $89.97</div>
+      <div className={styles[`total`]}>Total: {formatPrice(89.97)}</div>
     </div>
   );
 };

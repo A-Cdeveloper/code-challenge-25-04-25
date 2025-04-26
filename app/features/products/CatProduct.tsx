@@ -1,6 +1,7 @@
 import Button from "@/app/components/ui/Button";
 import styles from "./CatProduct.module.css";
 import Image from "next/image";
+import { formatPrice } from "@/app/lib/utils";
 
 const CatProduct = () => {
   return (
@@ -19,7 +20,7 @@ const CatProduct = () => {
         height={200}
       ></Image>
       <h3>Product 1</h3>
-      <p>$29.99</p>
+      <p>{formatPrice(29.99)}</p>
       <Button variant="add" size="small">
         Add to Cart
       </Button>

@@ -1,4 +1,5 @@
 "use client";
+import { formatPrice } from "@/app/lib/utils";
 import styles from "./CartItem.module.css";
 
 const CartItem = () => {
@@ -15,7 +16,7 @@ const CartItem = () => {
         <input type="text" value="1" className={styles["qty-input"]} readOnly />
         <button className={styles["qty-btn"]}>+</button>
       </div>
-      <div className={styles[`product-price`]}>$29.99</div>
+      <div className={styles[`product-price`]}>{formatPrice(29.99)}</div>
     </div>
   );
 };
