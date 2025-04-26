@@ -5,7 +5,7 @@ const CategoryListItem = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className={styles.categoryListItem}>
       <h3>
-        <Link href={`/categories/8`}>{children}</Link>
+        <Link href={`/categories/${children}`}>{children}</Link>
       </h3>
     </div>
   );

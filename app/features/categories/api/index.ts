@@ -9,10 +9,9 @@ type ResponseType = {
   error: string | null;
 };
 
-const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
+// const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
 
 export const getAllCategories = async (): Promise<ResponseType> => {
-  await delay(5000);
   try {
     const res = await fetch(`${API_BASE_URL}/products/categories/`);
     if (!res.ok) throw new Error("Failed to fetch categories ⚠");
