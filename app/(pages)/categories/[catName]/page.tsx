@@ -1,12 +1,17 @@
 import GoBack from "@/app/components/ui/GoBack";
 import CatProductsList from "@/app/features/products/CatProductsList";
+import { formatCategoryName } from "@/app/lib/utils";
 import React from "react";
 
-const SigleCategoryPage = async () => {
+type Params = Promise<{ catName: string }>;
+
+const SigleCategoryPage = async ({ params }: { params: Params }) => {
+  const { catName } = await params;
+
   return (
     <>
       <GoBack />
-      <h2>Category name (10)</h2>
+      <h2>{formatCategoryName(catName)}</h2>
       <CatProductsList />
     </>
   );

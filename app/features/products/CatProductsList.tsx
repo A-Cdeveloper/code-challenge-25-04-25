@@ -10,18 +10,21 @@ No products found in this category.
 
 const CatProductsList = () => {
   return (
-    <section className={styles[`product-grid`]}>
-      <CatProduct />
-      <CatProduct />
-      <CatProduct />
-      <CatProduct />
-      <CatProduct />
-      <CatProduct />
-      <CatProduct />
-      <CatProduct />
+    <>
+      <p className={styles[`products-count`]}>Number of products: 12</p>
+      <section className={styles[`product-grid`]}>
+        <CatProduct />
+        <CatProduct />
+        <CatProduct />
+        <CatProduct />
+        <CatProduct />
+        <CatProduct />
+        <CatProduct />
+        <CatProduct />
 
-      <CatProduct />
-    </section>
+        <CatProduct />
+      </section>
+    </>
   );
 };
 
