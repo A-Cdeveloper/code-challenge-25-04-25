@@ -6,15 +6,13 @@ import Link from "next/link";
 import styles from "./_styles/MiniCart.module.css";
 
 const MiniCart = () => {
-  const { totalCount, hydrated } = useCart();
+  const { totalCount } = useCart();
 
   return (
     <Link href="/cart" className={styles["mini-cart"]}>
       <Image src="/shopping-cart.svg" alt="Cart" width={25} height={25} />
 
-      <span className={styles["total"]}>
-        {hydrated && totalCount > 0 && totalCount}
-      </span>
+      <span className={styles["total"]}>{totalCount > 0 ? totalCount : 0}</span>
     </Link>
   );
 };
