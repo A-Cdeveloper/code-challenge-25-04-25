@@ -1,24 +1,22 @@
-import Button from "@/app/components/ui/Button";
+// import NoResourcesFound from "@/app/components/ui/NoResourcesFound";
 import styles from "./Cart.module.css";
 import CartItem from "./CartItem";
-import Link from "next/link";
 import { formatPrice } from "@/app/lib/utils";
+
+{
+  /* <NoResourcesFound>
+Cart is empty. Please add items to your cart.
+</NoResourcesFound> */
+}
 
 const Cart = () => {
   return (
     <div className={styles[`cart-container`]}>
-      {/* <p>Cart is empty. Please add items to your cart.</p>
-      <Link href="/">
-        <Button size="medium" style={{ marginTop: "1rem" }}>
-          Go to homepage
-        </Button>
-      </Link> */}
       <CartItem />
       <CartItem />
       <CartItem />
       <CartItem />
       <CartItem />
-
       <div className={styles[`total`]}>Total: {formatPrice(89.97)}</div>
     </div>
   );

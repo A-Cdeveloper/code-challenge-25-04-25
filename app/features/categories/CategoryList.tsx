@@ -1,5 +1,12 @@
-import styles from "./CategoryList.module.css";
+// import NoResourcesFound from "@/app/components/ui/NoResourcesFound";
+
 import CategoryListItem from "./CategoryListItem";
+import styles from "./CategoryList.module.css";
+{
+  /* <NoResourcesFound>
+No categories.
+</NoResourcesFound> */
+}
 
 const CategoryList = () => {
   return (
