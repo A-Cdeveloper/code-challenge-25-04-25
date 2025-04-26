@@ -1,9 +1,7 @@
-// import NoResourcesFound from "@/app/components/ui/NoResourcesFound";
-
-import CategoryListItem from "./CategoryListItem";
-import styles from "./CategoryList.module.css";
-import { getAllCategories } from "./api";
 import NoResourcesFound from "@/app/components/ui/NoResourcesFound";
+import styles from "./CategoryList.module.css";
+import CategoryListItem from "./CategoryListItem";
+import { getAllCategories } from "./api";
 
 const CategoryList = async () => {
   const { data: categories, error } = await getAllCategories();
@@ -18,7 +16,9 @@ const CategoryList = async () => {
   return (
     <div className={styles.categoryList}>
       {categories?.map((category) => (
-        <CategoryListItem key={category}>{category}</CategoryListItem>
+        <CategoryListItem key={category} categoryName={category}>
+          {category}
+        </CategoryListItem>
       ))}
     </div>
   );
