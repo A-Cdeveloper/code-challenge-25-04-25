@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import { CartContextProvider } from "./context/CartContext";
 import Header from "./components/layout/Header";
 import MainArea from "./components/layout/Main";
 import Footer from "./components/layout/Footer";
+
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Webshop",
@@ -18,9 +20,11 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <div className="container">
-          <Header />
-          <MainArea>{children}</MainArea>
-          <Footer />
+          <CartContextProvider>
+            <Header />
+            <MainArea>{children}</MainArea>
+            <Footer />
+          </CartContextProvider>
         </div>
       </body>
     </html>
