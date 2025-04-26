@@ -1,26 +1,21 @@
 import Button from "@/app/components/ui/Button";
-import styles from "./CatProduct.module.css";
+import styles from "./Product.module.css";
 import Image from "next/image";
 import { formatPrice } from "@/app/lib/utils";
+import { ProductType } from "./types/products";
 
-const CatProduct = () => {
+const Product = ({ product }: { product: ProductType }) => {
+  const { title, price, image } = product;
   return (
     <div className={styles[`product-card`]}>
-      {/* <Image
-        src="https://picsum.photos/200/200"
-        alt="Product 1"
-        width={200}
-        height={200}
-      /> */}
-
       <Image
-        src="/no-image.jpg"
-        alt="Product 1"
+        src={image ? image : "/no-image.jpg"}
+        alt={title}
         width={200}
         height={200}
-      ></Image>
-      <h3>Product 1</h3>
-      <p>{formatPrice(29.99)}</p>
+      />
+      <h3>{title}</h3>
+      <p>{formatPrice(price)}</p>
       <Button variant="add" size="small">
         Add to Cart
       </Button>
@@ -31,4 +26,4 @@ const CatProduct = () => {
   );
 };
 
-export default CatProduct;
+export default Product;

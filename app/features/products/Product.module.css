@@ -6,6 +6,9 @@
   overflow: hidden;
   text-align: center;
   padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .product-card img {
@@ -15,7 +18,7 @@
 }
 
 .product-card h3 {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   margin-top: 10px;
   color: var(--primary-color);
 }
@@ -24,4 +27,8 @@
   font-size: 1.5rem;
   color: var(--secondary-color);
   margin: 10px 0;
+}
+
+.product-card button {
+  align-self: center;
 }
