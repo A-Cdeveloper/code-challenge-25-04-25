@@ -1,23 +1,23 @@
 "use client";
 import Button from "@/app/components/ui/Button";
+import CustumImage from "@/app/components/ui/CustumImage";
 import { useCart } from "@/app/context/CartContext";
 import { formatPrice } from "@/app/lib/utils";
-import Image from "next/image";
 import styles from "./Product.module.css";
 import { ProductType } from "./types/products";
 
 const Product = ({ product }: { product: ProductType }) => {
   const { addToCart, existInCart, removeFromCart, hydrated } = useCart();
-  const { id, title, price, image } = product;
+  const { id, title, price, image, category } = product;
 
   /*skip checking cart data during server-side rendering and only do it after hydration. */
   const isProductInCart = hydrated ? existInCart(id) : false;
 
   return (
     <div className={styles[`product-card`]}>
-      <Image
-        src={image ? image : "/no-image.jpg"}
-        alt={title}
+      <CustumImage
+        image={image ? image : "/no-image.jpg"}
+        title={title}
         width={200}
         height={200}
       />
@@ -48,6 +48,8 @@ const Product = ({ product }: { product: ProductType }) => {
                   title,
                   price,
                   quantity: 1,
+                  category,
+                  image,
                 })
               }
             >
