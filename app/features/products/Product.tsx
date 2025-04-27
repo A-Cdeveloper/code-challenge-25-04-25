@@ -1,10 +1,11 @@
 "use client";
 import Button from "@/app/components/ui/Button";
-import CustumImage from "@/app/components/ui/CustumImage";
+import CustomImage from "@/app/components/ui/CustomImage";
 import { useCart } from "@/app/context/CartContext";
 import { formatPrice } from "@/app/lib/utils";
 import styles from "./Product.module.css";
 import { ProductType } from "./types/products";
+import DeleteIcon from "@/app/components/ui/DeleteIcon";
 
 const Product = ({ product }: { product: ProductType }) => {
   const { addToCart, existInCart, removeFromCart, hydrated } = useCart();
@@ -15,7 +16,7 @@ const Product = ({ product }: { product: ProductType }) => {
 
   return (
     <div className={styles[`product-card`]}>
-      <CustumImage
+      <CustomImage
         image={image ? image : "/no-image.jpg"}
         title={title}
         width={200}
@@ -30,13 +31,7 @@ const Product = ({ product }: { product: ProductType }) => {
               <Button variant="disable" size="small">
                 In Cart ✔
               </Button>
-              <Button
-                size="small"
-                onClick={() => removeFromCart(id)}
-                style={{ backgroundColor: "var(--accent-color)" }}
-              >
-                &times;
-              </Button>
+              <DeleteIcon onClick={() => removeFromCart(id)} />
             </>
           ) : (
             <Button
