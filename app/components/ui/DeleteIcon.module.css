@@ -1,0 +1,20 @@
+.delete-icon {
+  cursor: pointer;
+  border: 1px solid var(--accent-color);
+  color: #fff;
+
+  width: 2.7rem;
+  height: 2.7rem;
+  border-radius: 4px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+}
+
+.delete-icon:hover {
+  opacity: 0.8;
+}
