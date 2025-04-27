@@ -1,6 +1,7 @@
 .custom-image-container {
   position: relative;
   overflow: hidden;
+  text-align: center;
 }
 
 .custom-image-container img {

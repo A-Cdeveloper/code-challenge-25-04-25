@@ -11,16 +11,14 @@ const CartItem = ({ item }: { item: CartItemType }) => {
   const { id, title, price, quantity, category, image } = item;
   return (
     <div className={styles[`cart-item`]}>
-      {/*  */}
       <DeleteIcon onClick={() => removeFromCart(id)} />
-      <div className={styles[`product-info`]}>
-        <CustomImage
-          image={image ? image : "/no-image.jpg"}
-          title={title}
-          height={80}
-          width={80}
-        />
 
+      <CustomImage
+        image={image ? image : "/no-image.jpg"}
+        title={title}
+        className={styles[`product-image`]}
+      />
+      <div className={styles[`product-info`]}>
         <div className={styles[`product-name`]}>
           {title}
           <br />
@@ -37,12 +35,8 @@ const CartItem = ({ item }: { item: CartItemType }) => {
         >
           -
         </button>
-        <input
-          type="text"
-          value={quantity}
-          className={styles["qty-input"]}
-          readOnly
-        />
+
+        <span className={styles["qty"]}>{quantity}</span>
         <button
           className={styles["qty-btn"]}
           onClick={() => increaseQuantity(id)}

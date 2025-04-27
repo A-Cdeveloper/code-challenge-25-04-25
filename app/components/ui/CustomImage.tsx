@@ -6,13 +6,15 @@ type ImageProps = {
   title: string;
   width?: number;
   height?: number;
+  className?: string;
 };
 
 const CustomImage = ({
   image,
   title,
-  width = 200,
-  height = 200,
+  width = 600,
+  height = 600,
+  className,
 }: ImageProps) => {
   return (
     <div className={styles["custom-image-container"]}>
@@ -21,6 +23,7 @@ const CustomImage = ({
         alt={title}
         width={width}
         height={height}
+        className={className}
       />
     </div>
   );
