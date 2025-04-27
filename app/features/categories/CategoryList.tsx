@@ -10,7 +10,7 @@ const CategoryList = async () => {
     return <p>{error}</p>;
   }
 
-  if (!categories || categories.length === 0) {
+  if (categories?.length === 0) {
     return <NoResourcesFound>No categories found.</NoResourcesFound>;
   }
   return (

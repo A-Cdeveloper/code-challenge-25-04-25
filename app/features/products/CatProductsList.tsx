@@ -10,7 +10,7 @@ const CatProductsList = async ({ category }: { category: string }) => {
     return <p>{error}</p>;
   }
 
-  if (!products || products.length === 0) {
+  if (products?.length === 0) {
     return (
       <NoResourcesFound>No products found in this category.</NoResourcesFound>
     );
