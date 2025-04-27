@@ -1,6 +1,6 @@
 import { API_BASE_URL } from "@/app/lib/constants";
 
-/* category type can be complex object */
+/* category type can be complex object in the future */
 type CategoryType = string;
 
 /* response type */
@@ -9,7 +9,7 @@ type ResponseType = {
   error: string | null;
 };
 
-// const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
+// TEST const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
 
 export const getAllCategories = async (): Promise<ResponseType> => {
   try {

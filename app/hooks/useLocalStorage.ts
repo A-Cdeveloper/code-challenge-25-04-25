@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 const useLocalStorage = <T>(key: string, initialValue: T) => {
   const [data, setData] = useState<T>(initialValue);
-  const [hydrated, setHydrated] = useState(false); // 🆕
+  const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
     try {
@@ -14,7 +14,7 @@ const useLocalStorage = <T>(key: string, initialValue: T) => {
     } catch (error) {
       console.error(`Error parsing local storage key "${key}":`, error);
     }
-    setHydrated(true); // 🆕
+    setHydrated(true);
   }, [key]);
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const useLocalStorage = <T>(key: string, initialValue: T) => {
     }
   }, [key, data, hydrated]);
 
-  return [data, setData, hydrated] as [typeof data, typeof setData, boolean]; // 🆕
+  return [data, setData, hydrated] as [typeof data, typeof setData, boolean];
 };
 
 export default useLocalStorage;
