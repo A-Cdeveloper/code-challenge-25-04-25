@@ -1,0 +1,9 @@
+.custom-image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.custom-image-container img {
+  width: 100%;
+  object-fit: contain;
+}
