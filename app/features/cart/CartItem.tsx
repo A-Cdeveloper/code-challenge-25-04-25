@@ -1,17 +1,16 @@
-"use client";
 import CustomImage from "@/app/components/ui/CustomImage";
-import { useCart } from "@/app/context/CartContext";
+import CartItemQuantity from "./CartItemQuantity";
+import CartItemRemove from "./CartItemRemove";
+
+import { CartItemType } from "./types/cartItems";
 import { formatPrice } from "@/app/lib/utils";
 import styles from "./CartItem.module.css";
-import { CartItemType } from "./types/cartItems";
-import DeleteIcon from "@/app/components/ui/DeleteIcon";
 
 const CartItem = ({ item }: { item: CartItemType }) => {
-  const { increaseQuantity, decreaseQuantity, removeFromCart } = useCart();
   const { id, title, price, quantity, category, image } = item;
   return (
     <div className={styles[`cart-item`]}>
-      <DeleteIcon onClick={() => removeFromCart(id)} />
+      <CartItemRemove id={id} />
 
       <CustomImage
         image={image ? image : "/no-image.jpg"}
@@ -27,23 +26,7 @@ const CartItem = ({ item }: { item: CartItemType }) => {
           </span>
         </div>
       </div>
-
-      <div className={styles[`quantity`]}>
-        <button
-          className={styles["qty-btn"]}
-          onClick={() => decreaseQuantity(id)}
-        >
-          -
-        </button>
-
-        <span className={styles["qty"]}>{quantity}</span>
-        <button
-          className={styles["qty-btn"]}
-          onClick={() => increaseQuantity(id)}
-        >
-          +
-        </button>
-      </div>
+      <CartItemQuantity id={id} quantity={quantity} />
       <div className={styles[`product-price`]}>{formatPrice(price)}</div>
     </div>
   );

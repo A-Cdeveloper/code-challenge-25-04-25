@@ -1,0 +1,29 @@
+.quantity {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.qty-btn {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 3px 8px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+  color: black;
+  width: 30px;
+}
+
+.qty-btn:hover {
+  background-color: #e0e0e0;
+}
+
+.qty {
+  width: 30px;
+  text-align: center;
+  padding: 4px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+}
