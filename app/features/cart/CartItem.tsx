@@ -1,9 +1,10 @@
 "use client";
-import CustumImage from "@/app/components/ui/CustumImage";
+import CustomImage from "@/app/components/ui/CustomImage";
 import { useCart } from "@/app/context/CartContext";
 import { formatPrice } from "@/app/lib/utils";
 import styles from "./CartItem.module.css";
 import { CartItemType } from "./types/cartItems";
+import DeleteIcon from "@/app/components/ui/DeleteIcon";
 
 const CartItem = ({ item }: { item: CartItemType }) => {
   const { increaseQuantity, decreaseQuantity, removeFromCart } = useCart();
@@ -11,22 +12,21 @@ const CartItem = ({ item }: { item: CartItemType }) => {
   return (
     <div className={styles[`cart-item`]}>
       {/*  */}
+      <DeleteIcon onClick={() => removeFromCart(id)} />
       <div className={styles[`product-info`]}>
-        <span className={styles[`close`]} onClick={() => removeFromCart(id)}>
-          &times;
-        </span>
-
-        <CustumImage
+        <CustomImage
           image={image ? image : "/no-image.jpg"}
           title={title}
-          width={80}
           height={80}
+          width={80}
         />
 
         <div className={styles[`product-name`]}>
           {title}
           <br />
-          <span>Category: {category}</span>
+          <span className={styles[`product-category`]}>
+            Category: {category}
+          </span>
         </div>
       </div>
 
