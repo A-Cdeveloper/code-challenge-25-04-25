@@ -2,3 +2,9 @@
   font-size: 3rem;
   color: white;
 }
+
+@media screen and (max-width: 600px) {
+  .logo h1 {
+    font-size: 2.5rem;
+  }
+}

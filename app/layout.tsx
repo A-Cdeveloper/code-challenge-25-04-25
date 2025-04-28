@@ -19,13 +19,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className="container">
-          <CartContextProvider>
-            <Header />
+        <CartContextProvider>
+          <Header />
+          <div className="container">
             <MainArea>{children}</MainArea>
             <Footer />
-          </CartContextProvider>
-        </div>
+          </div>
+        </CartContextProvider>
       </body>
     </html>
   );
