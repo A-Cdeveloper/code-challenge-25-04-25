@@ -74,6 +74,6 @@ yarn install
 ```
 
 ```
-git clone https://github.com/your-username/webshop-app.git
+git clone https://github.com/A-Cdeveloper/code-challenge-25-04-25.git
 cd webshop-app
 ```
