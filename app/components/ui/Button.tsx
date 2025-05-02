@@ -3,24 +3,23 @@ import styles from "./Button.module.css";
 
 type ButtonProps = {
   children: React.ReactNode;
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   variant?: "button" | "add" | "submit" | "reset" | "disable";
   size?: "small" | "medium" | "large";
-  style?: React.CSSProperties;
-};
+} & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 const Button = ({
   children,
   onClick,
   variant = "button",
   size = "medium",
-  style,
+  ...props
 }: ButtonProps) => {
   return (
     <button
       onClick={onClick}
       className={`${styles.btn} ${styles[variant] || ""} ${styles[size] || ""}`}
-      style={style}
+      {...props}
     >
       {children}
     </button>
